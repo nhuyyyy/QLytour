@@ -20,7 +20,7 @@ public class TourJDialog extends javax.swing.JDialog {
     DefaultTableModel table;
     public TourJDialog() {
         initComponents();
-       
+        setModal(true);
         doDuLieuTenBang();
         txtMaTour.setEditable(false);
         try {
@@ -269,7 +269,7 @@ public class TourJDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_jtTourMouseClicked
 
     private void CoffirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CoffirmButtonActionPerformed
-        dispose();
+        this.setVisible(false);
     }//GEN-LAST:event_CoffirmButtonActionPerformed
 
     private void btnQuayLaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQuayLaiMouseClicked
@@ -317,13 +317,16 @@ public void doDuLieuTenBang()
             Logger.getLogger(Tour.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void setTextFields(String matour, String loaitour, String tentour)
+    public void setTextFields(String matour, String loaitour, String tentour)//hienthi
     {
         txtMaTour.setText(matour);
+        System.out.println(txtMaTour.getText());
         cbLoaiTour.setSelectedItem(loaitour);
         txtTenTour.setText(tentour);
     }
-     public String getTextFieldContent() {
-        return  txtMaTour.getText();
-                    }
+     public String getTextFieldContent() //lay ve
+     {
+         System.out.println(this.txtMaTour.getText());
+        return  this.txtMaTour.getText();
+   }
 }

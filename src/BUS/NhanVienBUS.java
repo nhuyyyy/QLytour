@@ -8,13 +8,15 @@ package BUS;
 import DAO.NhanVienDAO;
 import DTO.NhanVien;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  *
  * @author xenov
  */
 public class NhanVienBUS {
-    public static ArrayList<NhanVien> ds;
+    public static List<NhanVien> ds;
 
    public void docDuLieu() throws Exception{
        NhanVienDAO data = new NhanVienDAO();
@@ -22,7 +24,12 @@ public class NhanVienBUS {
            ds = data.docDuLieu();
        }
    }
-
+    public void docduLieusearch(Map<String,String> nv) throws Exception{
+                 NhanVienDAO nvdao= new NhanVienDAO();
+       
+                ds = nvdao.getNhanVien(nv);
+             
+}
     public int them(NhanVien dd) {
        NhanVienDAO dao = new NhanVienDAO();
        int rs = dao.them(dd);
@@ -75,4 +82,9 @@ public class NhanVienBUS {
         }
         return s+(max+1);
     }
+      public List<NhanVien> getNhanvien(Map<String,String> nv) throws Exception{
+              NhanVienDAO nvdao= new NhanVienDAO();
+              List<NhanVien> dsnv = nvdao.getNhanVien(nv);
+              return dsnv;
+}
 }

@@ -12,6 +12,8 @@ import java.sql.ResultSet;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import javax.swing.JOptionPane;
 
 /**
@@ -96,4 +98,36 @@ public class NhanVienDAO {
 		}
                 return res;
 	}
+        public List<NhanVien> getNhanVien(Map<String,String> nv)throws Exception{
+               List<NhanVien> ds = new ArrayList<NhanVien>();
+              MyDataAccess my = new MyDataAccess("localhost","root","","qltour");
+		try {
+			StringBuffer query = new StringBuffer("Select * from nhanvien where 1=1");
+                        if(nv.get("Manhanvien")!= null && !nv.get("Manhanvien").equals("")){
+                            query.append(" and manv = "+nv.get("Manhanvien"));
+                        }
+                        if(nv.get("tennhanvien")!= null&& !nv.get("tennhanvien").equals("")){
+                            query.append(" and tennv ="+nv.get("tennhanvien"));
+                            
+                        }
+                        System.out.println(query.toString());
+			ResultSet rs = my.executeQuery(query.toString());
+			while(rs.next()) {
+				NhanVien nhanvien = new NhanVien();
+				nhanvien.setManhanvien(rs.getInt(1));
+                                nhanvien.setTennhanvien(rs.getString(2));
+                                nhanvien.setNgaysinh(rs.getDate(3));
+                                nhanvien.setCmnd(rs.getInt(4));
+				ds.add(nhanvien);
+			}
+                        return ds;
+		}catch(Exception e) {
+			System.out.println(e);
+			JOptionPane.showMessageDialog(null,"Lỗi đọc Database");
+		}
+                finally{
+                    my.close();
+                }
+                return null;
+        }
 }

@@ -7,7 +7,7 @@ package GUI;
 import BUS.DiaDiemBUS;
 import BUS.GiaTourBUS;
 import DTO.GiaTour;
-
+import GUI.TourJDialog;
 import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -37,7 +37,7 @@ public class GiaPanel extends javax.swing.JPanel {
     }
  public void setEditable(boolean flag){
         txtMaGia.setEditable(false);
-        txtMaTour.setEditable(true);
+       
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -375,16 +375,17 @@ public class GiaPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jtMouseClicked
 
     private void SuggestTourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SuggestTourActionPerformed
-        if(evt.equals(SuggestTour)){ // Suggest tour
+        if(evt.getSource()== SuggestTour ){ // Suggest tour
             TourJDialog td = new TourJDialog();
+            td.setVisible(true);
             String s = td.getTextFieldContent();
             txtMaTour.setText(s);
+            
         }
     }//GEN-LAST:event_SuggestTourActionPerformed
 
     private void SuggestTourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SuggestTourMouseClicked
-       TourJDialog td = new TourJDialog();
-      td.setVisible(true);
+      
     }//GEN-LAST:event_SuggestTourMouseClicked
 
 

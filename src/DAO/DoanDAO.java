@@ -12,6 +12,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+import java.util.Map;
 import javax.swing.JOptionPane;
 
 /**
@@ -95,4 +97,35 @@ public class DoanDAO {
 		}
                 return res;
 	}
+          public List<Doan> getDoan(Map<String,String> d)throws Exception{
+               List<Doan> ds = new ArrayList<Doan>();
+              MyDataAccess my = new MyDataAccess("localhost","root","","qltour");
+		try {
+			StringBuffer query = new StringBuffer("Select * from doan where 1=1");
+                        if(d.get("Madoan")!= null && !d.get("Madoan").equals("")){
+                            query.append(" and madoan = "+d.get("Madoan"));
+                        }
+                        
+                        System.out.println(query.toString());
+			ResultSet rs = my.executeQuery(query.toString());
+			while(rs.next()) {
+				Doan gt = new Doan();
+				gt.setMadoan(rs.getInt(1));
+                                gt.setMatour(rs.getInt(2));
+                                gt.setNbd(rs.getDate(3));
+                                gt.setNkt(rs.getDate(4));
+				ds.add(gt);
+			}
+                        return ds;
+		}catch(Exception e) {
+			System.out.println(e);
+			JOptionPane.showMessageDialog(null,"Lỗi đọc Database");
+		}
+                finally{
+                    my.close();
+                }
+                return null;
+        }
+          
 }
+

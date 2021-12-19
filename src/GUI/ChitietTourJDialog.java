@@ -384,14 +384,14 @@ public class ChitietTourJDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_btnBackMouseClicked
 
     private void suggestTourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_suggestTourMouseClicked
-       TourJDialog td = new TourJDialog();
-      td.setVisible(true);
+      
     }//GEN-LAST:event_suggestTourMouseClicked
 
     private void suggestTourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suggestTourActionPerformed
         
-        if(evt.equals(suggestTour)){ // Suggest tour
+        if(evt.getSource()==suggestTour){ // Suggest tour
             TourJDialog td = new TourJDialog();
+            td.setVisible(true);
             String s = td.getTextFieldContent();
             txtMaTour.setText(s);
         }

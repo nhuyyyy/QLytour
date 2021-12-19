@@ -8,6 +8,8 @@ package BUS;
 import DAO.DoanDAO;
 import DTO.Doan;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,7 +18,7 @@ import java.util.logging.Logger;
  * @author xenov
  */
 public class DoanBUS {
-    public static ArrayList<Doan> ds;
+    public static List<Doan> ds;
 
    public void docDuLieu() throws Exception{
        DoanDAO data = new DoanDAO();
@@ -24,7 +26,12 @@ public class DoanBUS {
            ds = data.docDuLieu();
        }
    }
-  
+             public void docduLieusearch(Map<String,String> d) throws Exception{
+                DoanDAO nvdao= new DoanDAO();
+       
+                ds = nvdao.getDoan(d);
+             
+}
     public int them(Doan gt) {
        DoanDAO dao = new DoanDAO();
        int rs = dao.them(gt);
@@ -84,4 +91,9 @@ public class DoanBUS {
         }
         return s+(max+1);
     }
+     public List<Doan> getDoan(Map<String,String> d) throws Exception{
+              DoanDAO ddao= new DoanDAO();
+              List<Doan> dsd = ddao.getDoan(d);
+              return dsd;
+}
 }
