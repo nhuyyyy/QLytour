@@ -81,7 +81,11 @@ public class NavigationBUS {
                    case "Loại Tour" :
                     node = new LoaitourJPanel();
 
-                    break;        
+                    break;  
+                    case "Địa Điểm" :
+                    node = new DiaDiemJPanel();
+
+                    break;       
             default:
                 break;
             }        
