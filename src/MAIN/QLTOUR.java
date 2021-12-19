@@ -44,6 +44,8 @@ public class QLTOUR extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 204));
         jLabel1.setText("QUẢN LÝ TOUR DU LỊCH");
 
+        jPanel1.setBackground(new java.awt.Color(153, 255, 255));
+
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("ĐĂNG NHẬP");
 

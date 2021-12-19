@@ -136,8 +136,8 @@ DefaultTableModel table;
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblMaDiadiem)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblMaDiadiem, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtMaLoaiChiPhi, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblTenDiaDiem)
@@ -240,7 +240,7 @@ DefaultTableModel table;
         }else{
             JOptionPane.showMessageDialog(null, "Mã đã tồn tại. Thêm thất bại");
         }
-
+cleanView();
     }//GEN-LAST:event_btnThemMouseClicked
 
     private void btnSuaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaMouseClicked
@@ -264,6 +264,7 @@ DefaultTableModel table;
                     jt.setModel(table);
                     JOptionPane.showMessageDialog(null, "Sửa thành công");
                 }
+                cleanView();
             }
         }
     }//GEN-LAST:event_btnSuaMouseClicked
@@ -281,6 +282,8 @@ DefaultTableModel table;
                     jt.setModel(table);
                     JOptionPane.showMessageDialog(null, "Xóa thành công");
                 }
+                cleanView();
+                
             }
         }
     }//GEN-LAST:event_btnXoaMouseClicked
@@ -326,7 +329,7 @@ DefaultTableModel table;
             }
             jt.setModel(table);
         } catch (Exception ex) {
-            Logger.getLogger(Tour.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TourJpanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -334,4 +337,11 @@ DefaultTableModel table;
         
         txtMaLoaiChiPhi.setText(string);
         txtTenLoaiChiPhi.setText(string0);
-    }}
+    }
+      public void cleanView() //Xóa trắng các TextField
+    {
+        txtMaLoaiChiPhi.setText("");
+        txtTenLoaiChiPhi.setText("");
+        
+    }
+}

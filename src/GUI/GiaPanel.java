@@ -6,7 +6,8 @@ package GUI;
 
 import BUS.DiaDiemBUS;
 import BUS.GiaTourBUS;
-import MAIN.Menu;
+import DTO.GiaTour;
+
 import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -63,6 +64,7 @@ public class GiaPanel extends javax.swing.JPanel {
         txtMaTour = new javax.swing.JTextField();
         jdcNgayKT = new com.toedter.calendar.JDateChooser();
         jLabel7 = new javax.swing.JLabel();
+        SuggestTour = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jt = new javax.swing.JTable();
 
@@ -118,6 +120,18 @@ public class GiaPanel extends javax.swing.JPanel {
 
         jLabel7.setText("Ngày kết thúc");
 
+        SuggestTour.setText("...");
+        SuggestTour.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SuggestTourMouseClicked(evt);
+            }
+        });
+        SuggestTour.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SuggestTourActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -153,7 +167,9 @@ public class GiaPanel extends javax.swing.JPanel {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtMaTour, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(txtMaTour, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(SuggestTour))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,10 +183,11 @@ public class GiaPanel extends javax.swing.JPanel {
                         .addComponent(txtGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jdcNgayBD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
+                .addGap(7, 7, 7)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtMaTour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMaTour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SuggestTour))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jdcNgayKT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -240,7 +257,7 @@ public class GiaPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -285,6 +302,7 @@ public class GiaPanel extends javax.swing.JPanel {
         }else{
             JOptionPane.showMessageDialog(null, "Mã đã tồn tại. Thêm thất bại");
         }
+        cleanView();
     }//GEN-LAST:event_btnThemMouseClicked
 
     private void btnSuaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaMouseClicked
@@ -320,6 +338,7 @@ public class GiaPanel extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "Sửa thành công");
                 }
             }
+            cleanView();
         }
     }//GEN-LAST:event_btnSuaMouseClicked
 
@@ -336,6 +355,7 @@ public class GiaPanel extends javax.swing.JPanel {
                     jt.setModel(table);
                     JOptionPane.showMessageDialog(null, "Xóa thành công");
                 }
+                cleanView();
             }
         }
     }//GEN-LAST:event_btnXoaMouseClicked
@@ -354,8 +374,22 @@ public class GiaPanel extends javax.swing.JPanel {
         if(i>=0) setTextFields(jt.getValueAt(i,0)+"",jt.getValueAt(i,1)+"",jt.getValueAt(i,2)+"",jt.getValueAt(i,3)+"",jt.getValueAt(i,4)+"");
     }//GEN-LAST:event_jtMouseClicked
 
+    private void SuggestTourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SuggestTourActionPerformed
+        if(evt.equals(SuggestTour)){ // Suggest tour
+            TourJDialog td = new TourJDialog();
+            String s = td.getTextFieldContent();
+            txtMaTour.setText(s);
+        }
+    }//GEN-LAST:event_SuggestTourActionPerformed
+
+    private void SuggestTourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SuggestTourMouseClicked
+       TourJDialog td = new TourJDialog();
+      td.setVisible(true);
+    }//GEN-LAST:event_SuggestTourMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton SuggestTour;
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;
@@ -395,7 +429,7 @@ private void doDuLieuLenBang() {
             }
             jt.setModel(table);
         } catch (Exception ex) {
-            Logger.getLogger(Tour.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TourJpanel.class.getName()).log(Level.SEVERE, null, ex);
         }
             
     }
@@ -413,6 +447,12 @@ private void doDuLieuLenBang() {
         }
         
     }
-
+  public void cleanView() //Xóa trắng các TextField
+    {
+        txtMaGia.setText("");
+        txtMaTour.setText("");
+        txtGia.setText("");
+        
+    }
    
 }

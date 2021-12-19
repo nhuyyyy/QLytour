@@ -5,6 +5,7 @@
 package GUI;
 
 import BUS.TourBUS;
+import DTO.Tour;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -339,7 +340,7 @@ public class TourJpanel extends javax.swing.JPanel {
         try {
             head.add(bus.getTenLoaiTour(tour.getMaloaitour()));
         } catch (Exception ex) {
-            Logger.getLogger(Tour.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TourJpanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         head.add(tour.getTentour());
         int rs = bus.Them(tour);
@@ -348,6 +349,7 @@ public class TourJpanel extends javax.swing.JPanel {
             jtTour.setModel(table);
             JOptionPane.showMessageDialog(null, "Thêm thành công");
         }
+        cleanView();
 
     }//GEN-LAST:event_btnThemMouseClicked
 
@@ -368,13 +370,18 @@ public class TourJpanel extends javax.swing.JPanel {
                     jtTour.setModel(table);
                     JOptionPane.showMessageDialog(null, "Xóa thành công");
                 }
+                cleanView();
             }
         }
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnSuaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaMouseClicked
         // TODO add your handling code here:
+ 
+            ChinhsuatourJDialog form = new ChinhsuatourJDialog(Integer.parseInt(txtMaTour.getText()));
+            form.setVisible(true);
 
+        
     }//GEN-LAST:event_btnSuaMouseClicked
 
     private void btnSuaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaMouseEntered
@@ -382,13 +389,7 @@ public class TourJpanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnSuaMouseEntered
 
     private void btnSuaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaMousePressed
-        int i = jtTour.getSelectedRow();
-        if(i>=0){
-            this.setVisible(false);
-            ChinhSuaTour form = new ChinhSuaTour(Integer.parseInt(txtMaTour.getText()));
-            form.setVisible(true);
-
-        }
+    
     }//GEN-LAST:event_btnSuaMousePressed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
@@ -477,5 +478,11 @@ public void doDuLieuTenBang()
         txtMaTour.setText(matour);
         cbLoaiTour.setSelectedItem(loaitour);
         txtTenTour.setText(tentour);
+    }
+     public void cleanView() //Xóa trắng các TextField
+    {
+        txtMaTour.setText("");
+        txtTenTour.setText("");
+        
     }
 }

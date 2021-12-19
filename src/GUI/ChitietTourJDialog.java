@@ -7,7 +7,8 @@ package GUI;
 import BUS.ChiTietTourBUS;
 import BUS.DiaDiemBUS;
 import BUS.GiaTourBUS;
-import MAIN.Menu;
+import DTO.*;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -71,7 +72,7 @@ public class ChitietTourJDialog extends javax.swing.JDialog {
         btnSua = new javax.swing.JButton();
         btnXoa = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
+        suggestTour = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -170,6 +171,18 @@ public class ChitietTourJDialog extends javax.swing.JDialog {
             }
         });
 
+        suggestTour.setText("jButton1");
+        suggestTour.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                suggestTourMouseClicked(evt);
+            }
+        });
+        suggestTour.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                suggestTourActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -191,7 +204,9 @@ public class ChitietTourJDialog extends javax.swing.JDialog {
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtMaTour, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(suggestTour, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                         .addComponent(jLabel4)
                         .addGap(18, 18, 18)
                         .addComponent(cbDD, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -215,7 +230,8 @@ public class ChitietTourJDialog extends javax.swing.JDialog {
                     .addComponent(txtMaTour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbDD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(txtThuTu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtThuTu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(suggestTour))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnThem)
@@ -225,46 +241,35 @@ public class ChitietTourJDialog extends javax.swing.JDialog {
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/3.jpg"))); // NOI18N
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 790, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(250, 250, 250)
-                            .addComponent(jLabel1))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(238, 238, 238)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(jLabel1)
-                            .addGap(11, 11, 11)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(140, 140, 140)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -312,8 +317,9 @@ public class ChitietTourJDialog extends javax.swing.JDialog {
             }else{
                 JOptionPane.showMessageDialog(null, "Mã đã tồn tại. Thêm thất bại");
             }
+            cleanView();
         } catch (Exception ex) {
-            Logger.getLogger(ChiTietTour.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ChitietTourJDialog.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnThemMouseClicked
 
@@ -341,6 +347,7 @@ public class ChitietTourJDialog extends javax.swing.JDialog {
                     jt.setModel(table);
                     JOptionPane.showMessageDialog(null, "Sửa thành công");
                 }
+                cleanView();
             }
         }
     }//GEN-LAST:event_btnSuaMouseClicked
@@ -358,6 +365,7 @@ public class ChitietTourJDialog extends javax.swing.JDialog {
                     jt.setModel(table);
                     JOptionPane.showMessageDialog(null, "Xóa thành công");
                 }
+                cleanView();
             }
         }
     }//GEN-LAST:event_btnXoaActionPerformed
@@ -375,6 +383,20 @@ public class ChitietTourJDialog extends javax.swing.JDialog {
         dispose();
     }//GEN-LAST:event_btnBackMouseClicked
 
+    private void suggestTourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_suggestTourMouseClicked
+       TourJDialog td = new TourJDialog();
+      td.setVisible(true);
+    }//GEN-LAST:event_suggestTourMouseClicked
+
+    private void suggestTourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suggestTourActionPerformed
+        
+        if(evt.equals(suggestTour)){ // Suggest tour
+            TourJDialog td = new TourJDialog();
+            String s = td.getTextFieldContent();
+            txtMaTour.setText(s);
+        }
+    }//GEN-LAST:event_suggestTourActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -391,10 +413,10 @@ public class ChitietTourJDialog extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jt;
+    private javax.swing.JButton suggestTour;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtMaTour;
     private javax.swing.JTextField txtThuTu;
@@ -420,7 +442,7 @@ private void doDuLieuLenBang() {
             }
             jt.setModel(table);
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(Tour.class.getName()).log(Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TourJpanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
@@ -447,7 +469,7 @@ private void doDuLieuLenBang() {
             }
             cbDD.setModel(new DefaultComboBoxModel(v));
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(ChiTietTour.class.getName()).log(Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChitietTourJDialog.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -472,7 +494,14 @@ private void doDuLieuLenBang() {
             }
             jt.setModel(table);
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(Tour.class.getName()).log(Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TourJpanel.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+    }
+ public void cleanView() //Xóa trắng các TextField
+    {
+        txtID.setText("");
+        txtMaTour.setText("");
+        txtThuTu.setText("");
         
     }}

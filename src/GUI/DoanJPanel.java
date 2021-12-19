@@ -5,6 +5,8 @@
 package GUI;
 
 import BUS.DoanBUS;
+import DTO.Doan;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -263,6 +265,7 @@ public class DoanJPanel extends javax.swing.JPanel {
         }else{
             JOptionPane.showMessageDialog(null, "Mã đã tồn tại. Thêm thất bại");
         }
+        cleanView();
     }//GEN-LAST:event_btnThemMouseClicked
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
@@ -304,13 +307,10 @@ public class DoanJPanel extends javax.swing.JPanel {
             }
         }
         */
-        if( jt.getSelectedRow() >= 0)
-        {
-            this.setVisible(false);
-            GUI.ChinhSuaDoan csd = new ChinhSuaDoan(Integer.parseInt(txtMaDoan.getText()));
+       
+            chinhsuaDoanjDialog csd = new chinhsuaDoanjDialog(Integer.parseInt(txtMaDoan.getText()));
             csd.setVisible(true);
-        }
-
+        
     }//GEN-LAST:event_btnSuaMouseClicked
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
@@ -330,6 +330,7 @@ public class DoanJPanel extends javax.swing.JPanel {
                     jt.setModel(table);
                     JOptionPane.showMessageDialog(null, "Xóa thành công");
                 }
+                cleanView();
             }
         }
     }//GEN-LAST:event_btnXoaMouseClicked
@@ -383,8 +384,9 @@ public class DoanJPanel extends javax.swing.JPanel {
             }
             jt.setModel(table);
         } catch (Exception ex) {
-            Logger.getLogger(Tour.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TourJpanel.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
             
     }
 
@@ -399,5 +401,13 @@ public class DoanJPanel extends javax.swing.JPanel {
         } catch (ParseException ex) {
             Logger.getLogger(Doan.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+    }
+ public void cleanView() //Xóa trắng các TextField
+    {
+        txtMaDoan.setText("");
+        txtMaTour.setText("");
+         jdcNgayBD.setDate(null);
+         jdcNgayKT.setDate(null);
         
     }}

@@ -5,6 +5,7 @@
 package GUI;
 
 import BUS.KhachBUS;
+import DTO.Khach;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -277,7 +278,7 @@ public class KhachHangJPanel extends javax.swing.JPanel {
             }else{
                 JOptionPane.showMessageDialog(null, "Mã đã tồn tại. Thêm thất bại");
             }
-
+cleanView();
         } catch (Exception ex) {
             Logger.getLogger(Khach.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -307,6 +308,7 @@ public class KhachHangJPanel extends javax.swing.JPanel {
                     jt.setModel(table);
                     JOptionPane.showMessageDialog(null, "Sửa thành công");
                 }
+                cleanView();
             }
         }
     }//GEN-LAST:event_jButton3MouseClicked
@@ -324,6 +326,7 @@ public class KhachHangJPanel extends javax.swing.JPanel {
                     jt.setModel(table);
                     JOptionPane.showMessageDialog(null, "Xóa thành công");
                 }
+                cleanView();
             }
         }
     }//GEN-LAST:event_jButton2MouseClicked
@@ -386,4 +389,13 @@ public class KhachHangJPanel extends javax.swing.JPanel {
         }
         txtCMND.setText(toString2);
     }
+     public void cleanView() //Xóa trắng các TextField
+    {
+        txtCMND.setText("");
+        txtMaKhach.setText("");
+        txtTenKhach.setText("");
+        jdcDOB.setDate(null);
+    
+    
+        } 
 }

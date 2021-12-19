@@ -5,6 +5,7 @@
 package GUI;
 
 import BUS.NhanVienBUS;
+import DTO.NhanVien;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -301,7 +302,7 @@ public class NhanvienJPanel extends javax.swing.JPanel {
             }else{
                 JOptionPane.showMessageDialog(null, "Mã đã tồn tại. Thêm thất bại");
             }
-
+                cleanView();
         } catch (Exception ex) {
             Logger.getLogger(NhanVien.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -335,6 +336,7 @@ public class NhanvienJPanel extends javax.swing.JPanel {
                     jt.setModel(table);
                     JOptionPane.showMessageDialog(null, "Sửa thành công");
                 }
+                cleanView();
             }
         }
     }//GEN-LAST:event_jButton3MouseClicked
@@ -355,7 +357,9 @@ public class NhanvienJPanel extends javax.swing.JPanel {
                     table.removeRow(i);
                     jt.setModel(table);
                     JOptionPane.showMessageDialog(null, "Xóa thành công");
+                    
                 }
+                cleanView();
             }
         }
     }//GEN-LAST:event_jButton2MouseClicked
@@ -421,4 +425,11 @@ public class NhanvienJPanel extends javax.swing.JPanel {
             Logger.getLogger(NhanVien.class.getName()).log(Level.SEVERE, null, ex);
         }
         txtCMND.setText(toString2);
+    }
+ public void cleanView() //Xóa trắng các TextField
+    {
+        txtCMND.setText("");
+        txtMaNhanVien.setText("");
+        txtTenNhanVien.setText("");
+        
     }}

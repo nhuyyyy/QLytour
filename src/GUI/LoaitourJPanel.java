@@ -306,4 +306,9 @@ public class LoaitourJPanel extends javax.swing.JPanel {
             table.addRow(vector);
         }
         jt.setModel(table);
-    }}
+    }
+ public void cleanView() //Xóa trắng các TextField
+    {
+        txtMaLoaiTour.setText("");
+        txtTenLoaiTour.setText("");
+            }}
