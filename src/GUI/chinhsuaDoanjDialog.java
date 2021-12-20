@@ -4,13 +4,13 @@
  */
 package GUI;
 
-import BLL.ChiPhiBUS;
-import BLL.ChiTietDoanBUS;
-import BLL.DoanBUS;
-import BLL.KhachBUS;
-import BLL.LoaiChiPhiBUS;
-import BLL.NhanVienBUS;
-import BLL.NhanVienTrongDoanBUS;
+import BUS.ChiPhiBUS;
+import BUS.ChiTietDoanBUS;
+import BUS.DoanBUS;
+import BUS.KhachBUS;
+import BUS.LoaiChiPhiBUS;
+import BUS.NhanVienBUS;
+import BUS.NhanVienTrongDoanBUS;
 import DTO.ChiTietDoan;
 import DTO.NhanVienTrongDoan;
 import java.util.ArrayList;

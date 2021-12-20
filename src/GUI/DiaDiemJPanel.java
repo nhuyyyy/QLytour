@@ -4,7 +4,10 @@
  */
 package GUI;
 
-import BLL.DiaDiemBUS;
+import BUS.DiaDiemBUS;
+import DTO.DiaDiem;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -46,6 +49,13 @@ public class DiaDiemJPanel extends javax.swing.JPanel {
         lblMaDiadiem = new javax.swing.JLabel();
         txtMaDiaDiem = new javax.swing.JTextField();
         lblTenDiaDiem = new javax.swing.JLabel();
+        sortMadiadiem = new javax.swing.JTextField();
+        sortTendiadiem = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        btnSearch = new javax.swing.JButton();
         lblQuanLy = new javax.swing.JLabel();
 
         jPanel2.setBackground(new java.awt.Color(153, 255, 255));
@@ -112,32 +122,74 @@ public class DiaDiemJPanel extends javax.swing.JPanel {
 
         lblTenDiaDiem.setText("Tên địa điểm");
 
+        sortTendiadiem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortTendiadiemActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Mã địa điểm");
+
+        jLabel3.setText("Tên địa điểm");
+
+        jLabel4.setText("--------------------Tỉm kiếm ----------------------");
+
+        btnSearch.setText("Tìm kiếm");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
                         .addComponent(lblTenDiaDiem)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtTenDiaDiem, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(27, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(sortMadiadiem, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addGap(78, 78, 78))
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(sortTendiadiem, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(btnSearch)))
+                        .addGap(77, 77, 77))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(173, 173, 173)
+                .addComponent(jLabel4)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(31, 31, 31)
                     .addComponent(lblMaDiadiem)
                     .addGap(18, 18, 18)
                     .addComponent(txtMaDiaDiem, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(314, Short.MAX_VALUE)))
+                    .addContainerGap(439, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,11 +198,21 @@ public class DiaDiemJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTenDiaDiem)
                     .addComponent(txtTenDiaDiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnThem)
                     .addComponent(btnSua)
+                    .addComponent(btnThem)
                     .addComponent(btnXoa))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sortMadiadiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sortTendiadiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(btnSearch))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -158,7 +220,7 @@ public class DiaDiemJPanel extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblMaDiadiem)
                         .addComponent(txtMaDiaDiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(113, Short.MAX_VALUE)))
+                    .addContainerGap(157, Short.MAX_VALUE)))
         );
 
         lblQuanLy.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -169,27 +231,27 @@ public class DiaDiemJPanel extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(227, 227, 227)
                         .addComponent(lblQuanLy))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(54, Short.MAX_VALUE))
-            .addComponent(jScrollPane1)
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(lblQuanLy)
-                .addGap(38, 38, 38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 76, Short.MAX_VALUE))
+                .addGap(0, 73, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -219,6 +281,7 @@ public class DiaDiemJPanel extends javax.swing.JPanel {
                     jt.setModel(table);
                     JOptionPane.showMessageDialog(null, "Xóa thành công");
                 }
+                cleanView();
             }
         }
     }//GEN-LAST:event_btnXoaMouseClicked
@@ -248,6 +311,7 @@ public class DiaDiemJPanel extends javax.swing.JPanel {
                     jt.setModel(table);
                     JOptionPane.showMessageDialog(null, "Sửa thành công");
                 }
+                cleanView();
             }
         }
     }//GEN-LAST:event_btnSuaMouseClicked
@@ -274,7 +338,7 @@ public class DiaDiemJPanel extends javax.swing.JPanel {
         }else{
             JOptionPane.showMessageDialog(null, "Mã đã tồn tại. Thêm thất bại");
         }
-
+cleanView();
     }//GEN-LAST:event_btnThemMouseClicked
 
     private void jtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtMouseClicked
@@ -291,11 +355,27 @@ public class DiaDiemJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnThemActionPerformed
 
+    private void sortTendiadiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortTendiadiemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sortTendiadiemActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+         Map<String,String> map = new HashMap<>();
+       map.put("Madiadiem",sortMadiadiem.getText());
+       map.put("tendiadiem", sortTendiadiem.getText());
+        doDuLieuLensearch(map);
+    }//GEN-LAST:event_btnSearchActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -303,6 +383,8 @@ public class DiaDiemJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblMaDiadiem;
     private javax.swing.JLabel lblQuanLy;
     private javax.swing.JLabel lblTenDiaDiem;
+    private javax.swing.JTextField sortMadiadiem;
+    private javax.swing.JTextField sortTendiadiem;
     private javax.swing.JTextField txtMaDiaDiem;
     private javax.swing.JTextField txtTenDiaDiem;
     // End of variables declaration//GEN-END:variables
@@ -327,9 +409,35 @@ public class DiaDiemJPanel extends javax.swing.JPanel {
             Logger.getLogger(TourJpanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+ private void doDuLieuLensearch(Map<String,String> map) {
+        
+        DiaDiemBUS bus = new DiaDiemBUS();
+        try {
+            bus.docduLieusearch(map);
+            table = (DefaultTableModel) jt.getModel();
+            
+            table.setRowCount(0);
+            for(DTO.DiaDiem dd : bus.ds)
+            {
+                Vector vt = new Vector();
+                vt.add(dd.getMadiadiem());
+                vt.add(dd.getTendiadiem());
+                table.addRow(vt);
+            }
+            jt.setModel(table);
+        } catch (Exception ex) {
+            Logger.getLogger(TourJpanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     private void setTextFields(String string, String string0) {
         
         txtMaDiaDiem.setText(string);
         txtTenDiaDiem.setText(string0);
-    }}
+    }public void cleanView() //Xóa trắng các TextField
+    {
+        txtMaDiaDiem.setText("");
+        txtTenDiaDiem.setText("");
+      
+        
+    }
+}

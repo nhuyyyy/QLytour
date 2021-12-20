@@ -4,8 +4,10 @@
  */
 package GUI;
 
-import BLL.TourBUS;
+import BUS.TourBUS;
 import DTO.Tour;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -61,6 +63,11 @@ public class TourJpanel extends javax.swing.JPanel {
         lblTour = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtTour = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        sortMatour = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        sortTentour = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(646, 711));
         setRequestFocusEnabled(false);
@@ -266,30 +273,70 @@ public class TourJpanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jtTour);
 
+        jLabel1.setText("Mã tour");
+
+        sortMatour.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortMatourActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Tên Tour");
+
+        sortTentour.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortTentourActionPerformed(evt);
+            }
+        });
+
+        btnSearch.setText("Tìm kiếm");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(97, Short.MAX_VALUE)
+                .addComponent(pInputTour, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(79, 79, 79))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblTour, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(lblTour, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(pInputTour, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(111, Short.MAX_VALUE))
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(sortMatour, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(sortTentour, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(67, 67, 67)
+                .addComponent(btnSearch)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblTour, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pInputTour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(sortMatour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(sortTentour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearch))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
                 .addGap(18, 18, 18))
         );
 
@@ -397,7 +444,7 @@ public class TourJpanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnQuayLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuayLaiActionPerformed
-       
+
     }//GEN-LAST:event_btnQuayLaiActionPerformed
 
     private void cttMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cttMousePressed
@@ -432,14 +479,32 @@ public class TourJpanel extends javax.swing.JPanel {
         }        // TODO add your handling code here:
     }//GEN-LAST:event_btnXoaMousePressed
 
+    private void sortMatourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortMatourActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sortMatourActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+          Map<String,String> map = new HashMap<>();
+       map.put("Matour",sortMatour.getText());
+       map.put("tentour", sortTentour.getText());
+        doDuLieuSearch(map);
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void sortTentourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortTentourActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sortTentourActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnQuayLai;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;
     private javax.swing.JComboBox<String> cbLoaiTour;
     private javax.swing.JButton ctt;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jtTour;
@@ -448,6 +513,8 @@ public class TourJpanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblTenTour;
     private javax.swing.JLabel lblTour;
     private javax.swing.JPanel pInputTour;
+    private javax.swing.JTextField sortMatour;
+    private javax.swing.JTextField sortTentour;
     private javax.swing.JTextField txtMaTour;
     private javax.swing.JTextField txtTenTour;
     // End of variables declaration//GEN-END:variables
@@ -457,6 +524,27 @@ public void doDuLieuTenBang()
         TourBUS bus = new TourBUS();
         try {
             bus.docDuLieu();
+            table = (DefaultTableModel) jtTour.getModel();
+            //////////////arraylists
+            table.setRowCount(0);
+            for(DTO.Tour tour : bus.ds)
+            {
+                Vector vt = new Vector();
+                vt.add(tour.getMatour());
+                vt.add(bus.getTenLoaiTour(tour.getMaloaitour()));
+                vt.add(tour.getTentour());
+                table.addRow(vt);
+            }
+            jtTour.setModel(table);
+        } catch (Exception ex) {
+            Logger.getLogger(Tour.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+public void doDuLieuSearch(Map<String,String> map)
+    {
+        TourBUS bus = new TourBUS();
+        try {
+            bus.docduLieusearch(map);
             table = (DefaultTableModel) jtTour.getModel();
             //////////////arraylists
             table.setRowCount(0);

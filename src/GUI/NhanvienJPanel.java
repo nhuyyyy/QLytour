@@ -4,7 +4,7 @@
  */
 package GUI;
 
-import BLL.NhanVienBUS;
+import BUS.NhanVienBUS;
 import DTO.NhanVien;
 import java.text.DateFormat;
 import java.text.ParseException;

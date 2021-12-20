@@ -4,7 +4,7 @@
  */
 package GUI;
 
-import BLL.TourBUS;
+import BUS.TourBUS;
 import DTO.Tour;
 import java.util.Vector;
 import java.util.logging.Level;

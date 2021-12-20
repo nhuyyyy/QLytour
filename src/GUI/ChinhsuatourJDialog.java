@@ -4,17 +4,18 @@
  */
 package GUI;
 
-import BLL.ChiTietTourBUS;
-import BLL.DiaDiemBUS;
-import BLL.GiaTourBUS;
-import BLL.LoaiTourBUS;
-import BLL.TourBUS;
-import DAL.TourDAO;
+import BUS.ChiTietTourBUS;
+import BUS.DiaDiemBUS;
+import BUS.GiaTourBUS;
+import BUS.LoaiTourBUS;
+import BUS.TourBUS;
+import DAO.TourDAO;
 import DTO.GiaTour;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -597,7 +598,7 @@ public class ChinhsuatourJDialog extends javax.swing.JDialog {
         DTO.Tour tour;
         try {
             ltbus.docDuLieu();
-            ArrayList<DTO.LoaiTour> arrayListLoaiTour = ltbus.ds;
+            List<DTO.LoaiTour> arrayListLoaiTour = ltbus.ds;
             Vector vector = new Vector();
             for(DTO.LoaiTour lt : arrayListLoaiTour)
             {

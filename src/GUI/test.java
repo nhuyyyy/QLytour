@@ -4,7 +4,7 @@
  */
 package GUI;
 
-import BLL.NavigationBUS;
+import BUS.NavigationBUS;
 import DTO.ListDTO;
 import java.util.ArrayList;
 import java.util.List;

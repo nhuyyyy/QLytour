@@ -4,7 +4,13 @@
  */
 package GUI;
 
-import BLL.LoaiChiPhiBUS;
+import BUS.LoaiChiPhiBUS;
+import BUS.NhanVienBUS;
+import DTO.NhanVien;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -49,6 +55,12 @@ DefaultTableModel table;
         btnSua = new javax.swing.JButton();
         btnXoa = new javax.swing.JButton();
         btnQuayLai = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        sortmacp = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        sorttcp = new javax.swing.JTextField();
+        btnsearch = new javax.swing.JButton();
 
         jPanel2.setBackground(new java.awt.Color(153, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(646, 711));
@@ -128,6 +140,19 @@ DefaultTableModel table;
             }
         });
 
+        jLabel1.setText("------------Tìm Kiếm--------------");
+
+        jLabel2.setText("Mã loại chi phí");
+
+        jLabel3.setText("Tên Chi phí");
+
+        btnsearch.setText("Tìm kiếm");
+        btnsearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsearchActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -143,7 +168,7 @@ DefaultTableModel table;
                         .addComponent(lblTenDiaDiem)
                         .addGap(18, 18, 18)
                         .addComponent(txtTenLoaiChiPhi, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 46, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -153,6 +178,22 @@ DefaultTableModel table;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnQuayLai, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(246, 246, 246))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sortmacp, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(sorttcp, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
+                .addComponent(btnsearch)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,7 +210,16 @@ DefaultTableModel table;
                     .addComponent(btnSua)
                     .addComponent(btnXoa)
                     .addComponent(btnQuayLai))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(sortmacp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(sorttcp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnsearch))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -177,13 +227,10 @@ DefaultTableModel table;
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jScrollPane1)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGap(139, 139, 139)
                         .addComponent(lblQuanLy, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -195,9 +242,9 @@ DefaultTableModel table;
                 .addComponent(lblQuanLy)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 102, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 95, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -296,12 +343,23 @@ cleanView();
 
     }//GEN-LAST:event_btnQuayLaiActionPerformed
 
+    private void btnsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsearchActionPerformed
+   Map<String,String> map = new HashMap<>();
+       map.put("Machiphi",sortmacp.getText());
+       map.put("tenchiphi", sorttcp.getText());
+        doDuLieuSearch(map);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnsearchActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnQuayLai;
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;
+    private javax.swing.JButton btnsearch;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -309,6 +367,8 @@ cleanView();
     private javax.swing.JLabel lblMaDiadiem;
     private javax.swing.JLabel lblQuanLy;
     private javax.swing.JLabel lblTenDiaDiem;
+    private javax.swing.JTextField sortmacp;
+    private javax.swing.JTextField sorttcp;
     private javax.swing.JTextField txtMaLoaiChiPhi;
     private javax.swing.JTextField txtTenLoaiChiPhi;
     // End of variables declaration//GEN-END:variables
@@ -331,6 +391,27 @@ cleanView();
         } catch (Exception ex) {
             Logger.getLogger(TourJpanel.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+public void doDuLieuSearch(Map<String,String> map)
+    {
+        LoaiChiPhiBUS bus = new LoaiChiPhiBUS();
+        try {
+            bus.docduLieusearch(map);
+            table = (DefaultTableModel) jt.getModel();
+            
+            table.setRowCount(0);
+            for(DTO.LoaiChiPhi dd : bus.ds)
+            {
+                Vector vt = new Vector();
+                vt.add(dd.getMaloaichiphi());
+                vt.add(dd.getTenloaichiphi());
+                table.addRow(vt);
+            }
+            jt.setModel(table);
+        } catch (Exception ex) {
+            Logger.getLogger(TourJpanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     private void setTextFields(String string, String string0) {
