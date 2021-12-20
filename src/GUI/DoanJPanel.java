@@ -4,7 +4,7 @@
  */
 package GUI;
 
-import BUS.DoanBUS;
+import BLL.DoanBUS;
 import DTO.Doan;
 
 import java.text.DateFormat;

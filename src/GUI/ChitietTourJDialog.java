@@ -4,9 +4,9 @@
  */
 package GUI;
 
-import BUS.ChiTietTourBUS;
-import BUS.DiaDiemBUS;
-import BUS.GiaTourBUS;
+import BLL.ChiTietTourBUS;
+import BLL.DiaDiemBUS;
+import BLL.GiaTourBUS;
 import DTO.*;
 
 import java.text.DateFormat;

@@ -4,7 +4,7 @@
  */
 package MAIN;
 
-import BUS.NavigationBUS;
+import BLL.NavigationBUS;
 import DTO.ListDTO;
 import java.awt.HeadlessException;
 import javax.swing.JButton;

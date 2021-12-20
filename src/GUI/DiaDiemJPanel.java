@@ -4,7 +4,7 @@
  */
 package GUI;
 
-import BUS.DiaDiemBUS;
+import BLL.DiaDiemBUS;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;

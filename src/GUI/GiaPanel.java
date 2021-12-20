@@ -4,8 +4,8 @@
  */
 package GUI;
 
-import BUS.DiaDiemBUS;
-import BUS.GiaTourBUS;
+import BLL.DiaDiemBUS;
+import BLL.GiaTourBUS;
 import DTO.GiaTour;
 import GUI.TourJDialog;
 import java.sql.Date;

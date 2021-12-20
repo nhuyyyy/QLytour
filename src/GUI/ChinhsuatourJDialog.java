@@ -4,12 +4,12 @@
  */
 package GUI;
 
-import BUS.ChiTietTourBUS;
-import BUS.DiaDiemBUS;
-import BUS.GiaTourBUS;
-import BUS.LoaiTourBUS;
-import BUS.TourBUS;
-import DAO.TourDAO;
+import BLL.ChiTietTourBUS;
+import BLL.DiaDiemBUS;
+import BLL.GiaTourBUS;
+import BLL.LoaiTourBUS;
+import BLL.TourBUS;
+import DAL.TourDAO;
 import DTO.GiaTour;
 import java.text.DateFormat;
 import java.text.ParseException;

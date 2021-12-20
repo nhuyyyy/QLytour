@@ -4,7 +4,7 @@
  */
 package GUI;
 
-import BUS.KhachBUS;
+import BLL.KhachBUS;
 import DTO.Khach;
 import java.text.DateFormat;
 import java.text.ParseException;
