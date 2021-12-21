@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/SGU/HK1%2021-22/Phanlop/QLytour/src/GUI/NhanvienJPanel.java</file>
             <file>file:/D:/SGU/HK1%2021-22/Phanlop/QLytour/src/BUS/DiaDiemBUS.java</file>
             <file>file:/D:/SGU/HK1%2021-22/Phanlop/QLytour/src/BUS/NhanVienBUS.java</file>
@@ -10,6 +11,13 @@
             <file>file:/D:/SGU/HK1%2021-22/Phanlop/QLytour/src/DAO/NhanVienDAO.java</file>
             <file>file:/D:/SGU/HK1%2021-22/Phanlop/QLytour/src/DAO/DiaDiemDAO.java</file>
             <file>file:/D:/SGU/HK1%2021-22/Phanlop/QLytour/src/DTO/NhanVien.java</file>
+=======
+            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/QLytour/src/GUI/ThongKe.java</file>
+            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/QLytour/src/BLL/ThongKeBUS.java</file>
+            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/QLytour/src/DTO/ThongKe.java</file>
+            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/QLytour/src/DAL/ThongKeDAO.java</file>
+            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/QLytour/src/MAIN/QLTOUR.java</file>
+>>>>>>> 2beccd84f9dc8b550d51bb6b61f7d6abad3304a4
         </group>
     </open-files>
 </project-private>

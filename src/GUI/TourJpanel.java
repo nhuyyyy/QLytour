@@ -68,6 +68,7 @@ public class TourJpanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         sortTentour = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(646, 711));
         setRequestFocusEnabled(false);
@@ -296,6 +297,13 @@ public class TourJpanel extends javax.swing.JPanel {
             }
         });
 
+        jButton1.setText("Đặt lại table");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -319,7 +327,8 @@ public class TourJpanel extends javax.swing.JPanel {
                         .addComponent(sortTentour, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(67, 67, 67)
                 .addComponent(btnSearch)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -334,7 +343,8 @@ public class TourJpanel extends javax.swing.JPanel {
                     .addComponent(sortMatour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(sortTentour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearch))
+                    .addComponent(btnSearch)
+                    .addComponent(jButton1))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
                 .addGap(18, 18, 18))
@@ -425,8 +435,8 @@ public class TourJpanel extends javax.swing.JPanel {
     private void btnSuaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaMouseClicked
         // TODO add your handling code here:
  
-            ChinhsuatourJDialog form = new ChinhsuatourJDialog(Integer.parseInt(txtMaTour.getText()));
-            form.setVisible(true);
+            ChinhsuatourJDialog cst = new ChinhsuatourJDialog(Integer.parseInt(txtMaTour.getText()));
+            cst.setVisible(true);
 
         
     }//GEN-LAST:event_btnSuaMouseClicked
@@ -480,7 +490,7 @@ public class TourJpanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnXoaMousePressed
 
     private void sortMatourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortMatourActionPerformed
-        // TODO add your handling code here:
+     
     }//GEN-LAST:event_sortMatourActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
@@ -494,6 +504,11 @@ public class TourJpanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_sortTentourActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      jtTour.setModel(table);
+    
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnQuayLai;
@@ -503,6 +518,7 @@ public class TourJpanel extends javax.swing.JPanel {
     private javax.swing.JButton btnXoa;
     private javax.swing.JComboBox<String> cbLoaiTour;
     private javax.swing.JButton ctt;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
@@ -560,6 +576,7 @@ public void doDuLieuSearch(Map<String,String> map)
         } catch (Exception ex) {
             Logger.getLogger(Tour.class.getName()).log(Level.SEVERE, null, ex);
         }
+        table.fireTableDataChanged();
     }
     public void setTextFields(String matour, String loaitour, String tentour)
     {

@@ -7,7 +7,7 @@ import GUI.GiaPanel;
 import GUI.KhachHangJPanel;
 
 import GUI.NhanvienJPanel;
-import GUI.Thongke;
+import GUI.ThongKe;
 import GUI.TourJpanel;
 import GUI.*;
 import java.awt.*;
@@ -75,7 +75,7 @@ public class NavigationBUS {
                     node = new NhanvienJPanel();
                     break;
                   case "Thống kê" :
-                    node = new Thongke();
+                    node = new ThongKe();
 
                     break;        
                    case "Loại Tour" :
