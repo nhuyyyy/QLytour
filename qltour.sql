@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 28, 2020 at 10:10 PM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.10
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th12 21, 2021 lúc 04:05 PM
+-- Phiên bản máy phục vụ: 10.4.11-MariaDB
+-- Phiên bản PHP: 7.4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `qltour`
+-- Cơ sở dữ liệu: `qltour`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `chiphi`
+-- Cấu trúc bảng cho bảng `chiphi`
 --
 
 CREATE TABLE `chiphi` (
@@ -35,10 +34,25 @@ CREATE TABLE `chiphi` (
   `giatien` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Đang đổ dữ liệu cho bảng `chiphi`
+--
+
+INSERT INTO `chiphi` (`machiphi`, `malcp`, `madoan`, `giatien`) VALUES
+(1, 1, 1, 300000),
+(2, 2, 1, 2000000),
+(3, 4, 1, 1000000),
+(4, 1, 2, 4000000),
+(5, 2, 2, 2000000),
+(6, 1, 3, 2000000),
+(7, 2, 3, 1000000),
+(8, 3, 3, 700000),
+(9, 4, 3, 800000);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `chitietdoan`
+-- Cấu trúc bảng cho bảng `chitietdoan`
 --
 
 CREATE TABLE `chitietdoan` (
@@ -46,10 +60,23 @@ CREATE TABLE `chitietdoan` (
   `makhach` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Đang đổ dữ liệu cho bảng `chitietdoan`
+--
+
+INSERT INTO `chitietdoan` (`madoan`, `makhach`) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(1, 4),
+(2, 5),
+(2, 6),
+(3, 7);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `chitiettour`
+-- Cấu trúc bảng cho bảng `chitiettour`
 --
 
 CREATE TABLE `chitiettour` (
@@ -60,19 +87,26 @@ CREATE TABLE `chitiettour` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `chitiettour`
+-- Đang đổ dữ liệu cho bảng `chitiettour`
 --
 
 INSERT INTO `chitiettour` (`id`, `matour`, `madd`, `thutu`) VALUES
-(1, 1, 1, 1),
-(2, 1, 2, 2),
-(3, 2, 1, 1),
-(4, 2, 3, 2);
+(1, 5, 1, 1),
+(2, 5, 1, 2),
+(3, 5, 3, 3),
+(4, 5, 2, 4),
+(5, 5, 3, 5),
+(6, 1, 1, 1),
+(7, 1, 2, 2),
+(8, 1, 1, 3),
+(9, 1, 4, 4),
+(10, 4, 1, 1),
+(11, 4, 2, 2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `diadiem`
+-- Cấu trúc bảng cho bảng `diadiem`
 --
 
 CREATE TABLE `diadiem` (
@@ -81,45 +115,94 @@ CREATE TABLE `diadiem` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `diadiem`
+-- Đang đổ dữ liệu cho bảng `diadiem`
 --
 
 INSERT INTO `diadiem` (`madd`, `tendd`) VALUES
-(1, 'Saigon'),
-(2, 'Vũng Tàu'),
-(3, 'Châu Đốc');
+(1, 'Nhà Thờ Đức Bà,SG'),
+(2, 'Mũi Nghinh Phong,Vũng Tàu'),
+(3, 'Nhà Mồ Bà Chúc , An Giang'),
+(4, 'Vivaland,Phan Thiết'),
+(5, 'Suối nước nóng -Lagi- Bình Thuận'),
+(6, 'Lạng Sơn'),
+(7, 'Thái Bình'),
+(8, 'Đại Nam - Xứ sở thần tiên'),
+(9, 'Gốm sứ Minh Long, Bình Dương'),
+(10, 'Thanh Hóa'),
+(11, 'Sunworld Fansipan Legend-SaPa'),
+(12, 'Thung lũng hoa hồng Sapa-Sapa'),
+(13, 'Nhà thờ đá Sapa -SaPa'),
+(14, 'Thác Bản Dốc ,Cao Bằng'),
+(15, 'Động Ngườm Ngao ,Cao Bằng'),
+(16, 'Trường Đua Đại Nam,Bình Dương'),
+(17, 'Thành Nhà Mạc,Lạng Sơn'),
+(18, 'Thành Cổ ,Lạng Sơn'),
+(19, 'Biển Long Hải, Vũng Tàu'),
+(20, 'Miếu bà chùa Xứ ở Núi Sam, Châu Đốc,An Giang'),
+(21, 'Khu  di chỉ óc eo,An Giang'),
+(22, 'Căn cứ quân sự Ô Tà Sóc'),
+(23, 'Hải Đăng , Vũng Tàu'),
+(24, 'Khu Đồi Con Heo ,Vũng Tàu'),
+(25, 'Dinh Độc Lập,Saigon'),
+(26, 'Chợ Bến Thành,Sài Gòn'),
+(27, 'CocobeachLagi- Bình Thuận'),
+(28, 'Bản Cát Cát -Sapa');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `doan`
+-- Cấu trúc bảng cho bảng `doan`
 --
 
 CREATE TABLE `doan` (
   `madoan` int(5) NOT NULL,
   `matour` int(5) NOT NULL,
-  `ngaybd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `ngaybd` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `ngaykt` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `doan`
+--
+
+INSERT INTO `doan` (`madoan`, `matour`, `ngaybd`, `ngaykt`) VALUES
+(1, 1, '2021-11-30 17:00:00', '2021-12-03 17:00:00'),
+(2, 1, '2021-12-01 09:59:49', '2021-12-03 17:00:00'),
+(3, 2, '2021-12-21 12:35:56', '2021-12-10 17:00:00'),
+(4, 2, '2021-12-21 12:35:59', '2021-12-08 17:00:00'),
+(5, 1, '2021-12-05 13:56:42', '2021-12-08 13:56:42'),
+(6, 1, '2021-12-05 13:56:42', '2021-12-08 13:56:42');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `giatour`
+-- Cấu trúc bảng cho bảng `giatour`
 --
 
 CREATE TABLE `giatour` (
   `magia` int(5) NOT NULL,
   `matour` int(5) NOT NULL,
   `giatien` double NOT NULL,
-  `tgbd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `tgbd` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `tgkt` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `giatour`
+--
+
+INSERT INTO `giatour` (`magia`, `matour`, `giatien`, `tgbd`, `tgkt`) VALUES
+(1, 1, 301231, '2021-12-21 13:51:38', '2021-12-01 17:00:00'),
+(2, 1, 21474, '2021-12-21 13:51:52', '2021-12-04 17:00:00'),
+(3, 1, 1111111, '2021-12-21 13:52:18', '2021-12-06 17:00:00'),
+(4, 2, 5000000, '2021-12-21 13:51:15', '2021-12-21 17:00:00'),
+(5, 2, 500000, '2021-12-21 13:52:35', '2021-12-24 17:00:00'),
+(6, 2, 500000, '2021-12-21 13:52:43', '2021-12-30 17:00:00');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `khach`
+-- Cấu trúc bảng cho bảng `khach`
 --
 
 CREATE TABLE `khach` (
@@ -129,10 +212,22 @@ CREATE TABLE `khach` (
   `cmnd` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Đang đổ dữ liệu cho bảng `khach`
+--
+
+INSERT INTO `khach` (`makhach`, `tenkh`, `ngaysinh`, `cmnd`) VALUES
+(1, 'Nguyễn Văn An', '2000-12-07', 327647283),
+(2, 'Nguyễn Thúy Liễu', '2000-12-08', 136321346),
+(3, 'Dương Hoàng Lân', '2000-12-16', 124363324),
+(4, 'Trần Dần', '2003-12-12', 144512451),
+(5, 'Nguyễn Khánh An', '2000-12-10', 312345896),
+(6, 'Dương Ngọc Phương Thanh', '2000-12-20', 125489123);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `loaichiphi`
+-- Cấu trúc bảng cho bảng `loaichiphi`
 --
 
 CREATE TABLE `loaichiphi` (
@@ -140,10 +235,20 @@ CREATE TABLE `loaichiphi` (
   `tenlcp` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Đang đổ dữ liệu cho bảng `loaichiphi`
+--
+
+INSERT INTO `loaichiphi` (`malcp`, `tenlcp`) VALUES
+(1, 'Xăng'),
+(2, 'Khách Sạn'),
+(3, 'Tham Quan'),
+(4, 'Khác');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `loaitour`
+-- Cấu trúc bảng cho bảng `loaitour`
 --
 
 CREATE TABLE `loaitour` (
@@ -152,17 +257,22 @@ CREATE TABLE `loaitour` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `loaitour`
+-- Đang đổ dữ liệu cho bảng `loaitour`
 --
 
 INSERT INTO `loaitour` (`maloaitour`, `tenloaitour`) VALUES
-(1, 'Du Lịch'),
-(2, 'Trekking');
+(1, 'Du Lịch Nghỉ Dưỡng'),
+(2, 'Du Lịch Sinh Thái , Khám Phá'),
+(3, 'Du Lịch Lịch Sử'),
+(4, 'Du Lịch Ẩm Thực'),
+(5, 'Teambuilding'),
+(6, 'Du Lịch Văn Hoá'),
+(7, 'Du Lịch Xanh');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `nhanvien`
+-- Cấu trúc bảng cho bảng `nhanvien`
 --
 
 CREATE TABLE `nhanvien` (
@@ -172,10 +282,23 @@ CREATE TABLE `nhanvien` (
   `cmnd` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Đang đổ dữ liệu cho bảng `nhanvien`
+--
+
+INSERT INTO `nhanvien` (`manv`, `tennv`, `ngaysinh`, `cmnd`) VALUES
+(1, 'Nguyễn Thị Thu', '2000-12-27', 124102340),
+(2, 'Hoàng Ngọc Long', '2000-12-09', 200092012),
+(3, 'Dương Hưng Long', '2000-12-07', 1111111112),
+(4, 'Nguyễn Thu Hồng', '2000-12-18', 777777776),
+(5, 'Dương Hưng Long', '2000-12-07', 1123111111),
+(6, 'Hoàng Ngọc Long', '2000-12-09', 200092032),
+(7, 'Dương Hưng Long', '2000-12-07', 1111111156);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `nhanvientrongdoan`
+-- Cấu trúc bảng cho bảng `nhanvientrongdoan`
 --
 
 CREATE TABLE `nhanvientrongdoan` (
@@ -184,33 +307,51 @@ CREATE TABLE `nhanvientrongdoan` (
   `nhiemvu` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Đang đổ dữ liệu cho bảng `nhanvientrongdoan`
+--
+
+INSERT INTO `nhanvientrongdoan` (`madoan`, `manv`, `nhiemvu`) VALUES
+(1, 1, 'Tài Xế'),
+(1, 2, 'Hướng Dẫn Viên'),
+(2, 3, 'Tài Xế'),
+(2, 4, 'Hướng Dẫn Viên'),
+(3, 5, 'Tài Xế'),
+(3, 6, 'Hướng Dẫn Viên');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tour`
+-- Cấu trúc bảng cho bảng `tour`
 --
 
 CREATE TABLE `tour` (
   `matour` int(5) NOT NULL,
   `maloaitour` int(5) NOT NULL,
   `tentour` varchar(100) NOT NULL,
-  `Tong` float NOT NULL DEFAULT '0'
+  `Tong` float NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tour`
+-- Đang đổ dữ liệu cho bảng `tour`
 --
 
 INSERT INTO `tour` (`matour`, `maloaitour`, `tentour`, `Tong`) VALUES
-(1, 1, 'Tour 1', 100000),
-(2, 2, 'Tour 2', 200000);
+(1, 2, 'Sài Gòn - Đà Lạt', 54500000),
+(2, 2, 'Sài Gòn - Phan Thiết', 25000000),
+(3, 3, 'TPHCM - Cần Giờ', 300000),
+(4, 2, 'TPHCM - Bình Thuận', 0),
+(5, 2, 'TPHCM - Nha Trang', 0),
+(6, 5, 'TPHCM - Miền Tây', 0),
+(7, 7, 'Bò Cạp Vàng', 0),
+(8, 3, 'TPHCM - Phố Cổ', 0);
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `chiphi`
+-- Chỉ mục cho bảng `chiphi`
 --
 ALTER TABLE `chiphi`
   ADD PRIMARY KEY (`machiphi`),
@@ -218,13 +359,13 @@ ALTER TABLE `chiphi`
   ADD KEY `fk-madoan` (`madoan`);
 
 --
--- Indexes for table `chitietdoan`
+-- Chỉ mục cho bảng `chitietdoan`
 --
 ALTER TABLE `chitietdoan`
   ADD PRIMARY KEY (`madoan`,`makhach`);
 
 --
--- Indexes for table `chitiettour`
+-- Chỉ mục cho bảng `chitiettour`
 --
 ALTER TABLE `chitiettour`
   ADD PRIMARY KEY (`id`),
@@ -232,166 +373,166 @@ ALTER TABLE `chitiettour`
   ADD KEY `FK_MaDiaDiem` (`madd`);
 
 --
--- Indexes for table `diadiem`
+-- Chỉ mục cho bảng `diadiem`
 --
 ALTER TABLE `diadiem`
   ADD PRIMARY KEY (`madd`);
 
 --
--- Indexes for table `doan`
+-- Chỉ mục cho bảng `doan`
 --
 ALTER TABLE `doan`
   ADD PRIMARY KEY (`madoan`),
   ADD KEY `fk-matour-cttour` (`matour`);
 
 --
--- Indexes for table `giatour`
+-- Chỉ mục cho bảng `giatour`
 --
 ALTER TABLE `giatour`
   ADD PRIMARY KEY (`magia`),
   ADD KEY `matour` (`matour`);
 
 --
--- Indexes for table `khach`
+-- Chỉ mục cho bảng `khach`
 --
 ALTER TABLE `khach`
   ADD PRIMARY KEY (`makhach`);
 
 --
--- Indexes for table `loaichiphi`
+-- Chỉ mục cho bảng `loaichiphi`
 --
 ALTER TABLE `loaichiphi`
   ADD PRIMARY KEY (`malcp`);
 
 --
--- Indexes for table `loaitour`
+-- Chỉ mục cho bảng `loaitour`
 --
 ALTER TABLE `loaitour`
   ADD PRIMARY KEY (`maloaitour`);
 
 --
--- Indexes for table `nhanvien`
+-- Chỉ mục cho bảng `nhanvien`
 --
 ALTER TABLE `nhanvien`
   ADD PRIMARY KEY (`manv`);
 
 --
--- Indexes for table `nhanvientrongdoan`
+-- Chỉ mục cho bảng `nhanvientrongdoan`
 --
 ALTER TABLE `nhanvientrongdoan`
   ADD KEY `fk-madoan-ctnv` (`madoan`),
   ADD KEY `fk-manv` (`manv`);
 
 --
--- Indexes for table `tour`
+-- Chỉ mục cho bảng `tour`
 --
 ALTER TABLE `tour`
   ADD PRIMARY KEY (`matour`),
   ADD KEY `maloaitour` (`maloaitour`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `chiphi`
+-- AUTO_INCREMENT cho bảng `chiphi`
 --
 ALTER TABLE `chiphi`
-  MODIFY `machiphi` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `machiphi` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `chitiettour`
+-- AUTO_INCREMENT cho bảng `chitiettour`
 --
 ALTER TABLE `chitiettour`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
--- AUTO_INCREMENT for table `diadiem`
+-- AUTO_INCREMENT cho bảng `diadiem`
 --
 ALTER TABLE `diadiem`
-  MODIFY `madd` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `madd` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
--- AUTO_INCREMENT for table `doan`
+-- AUTO_INCREMENT cho bảng `doan`
 --
 ALTER TABLE `doan`
-  MODIFY `madoan` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `madoan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `giatour`
+-- AUTO_INCREMENT cho bảng `giatour`
 --
 ALTER TABLE `giatour`
-  MODIFY `magia` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `magia` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
--- AUTO_INCREMENT for table `khach`
+-- AUTO_INCREMENT cho bảng `khach`
 --
 ALTER TABLE `khach`
-  MODIFY `makhach` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `makhach` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `loaichiphi`
+-- AUTO_INCREMENT cho bảng `loaichiphi`
 --
 ALTER TABLE `loaichiphi`
-  MODIFY `malcp` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `malcp` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `loaitour`
+-- AUTO_INCREMENT cho bảng `loaitour`
 --
 ALTER TABLE `loaitour`
-  MODIFY `maloaitour` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `maloaitour` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `nhanvien`
+-- AUTO_INCREMENT cho bảng `nhanvien`
 --
 ALTER TABLE `nhanvien`
-  MODIFY `manv` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `manv` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `tour`
+-- AUTO_INCREMENT cho bảng `tour`
 --
 ALTER TABLE `tour`
-  MODIFY `matour` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `matour` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `chiphi`
+-- Các ràng buộc cho bảng `chiphi`
 --
 ALTER TABLE `chiphi`
   ADD CONSTRAINT `fk-madoan` FOREIGN KEY (`madoan`) REFERENCES `doan` (`madoan`),
   ADD CONSTRAINT `fk-maloaichiphi` FOREIGN KEY (`malcp`) REFERENCES `loaichiphi` (`malcp`);
 
 --
--- Constraints for table `chitiettour`
+-- Các ràng buộc cho bảng `chitiettour`
 --
 ALTER TABLE `chitiettour`
   ADD CONSTRAINT `FK_MaDiaDiem` FOREIGN KEY (`madd`) REFERENCES `diadiem` (`madd`),
   ADD CONSTRAINT `FK_MaTour` FOREIGN KEY (`matour`) REFERENCES `tour` (`matour`);
 
 --
--- Constraints for table `doan`
+-- Các ràng buộc cho bảng `doan`
 --
 ALTER TABLE `doan`
   ADD CONSTRAINT `fk-matour-cttour` FOREIGN KEY (`matour`) REFERENCES `tour` (`matour`);
 
 --
--- Constraints for table `giatour`
+-- Các ràng buộc cho bảng `giatour`
 --
 ALTER TABLE `giatour`
   ADD CONSTRAINT `fk-matour` FOREIGN KEY (`matour`) REFERENCES `tour` (`matour`);
 
 --
--- Constraints for table `nhanvientrongdoan`
+-- Các ràng buộc cho bảng `nhanvientrongdoan`
 --
 ALTER TABLE `nhanvientrongdoan`
   ADD CONSTRAINT `fk-madoan-ctnv` FOREIGN KEY (`madoan`) REFERENCES `doan` (`madoan`),
   ADD CONSTRAINT `fk-manv` FOREIGN KEY (`manv`) REFERENCES `nhanvien` (`manv`);
 
 --
--- Constraints for table `tour`
+-- Các ràng buộc cho bảng `tour`
 --
 ALTER TABLE `tour`
   ADD CONSTRAINT `fk-maloaitour` FOREIGN KEY (`maloaitour`) REFERENCES `loaitour` (`maloaitour`);
