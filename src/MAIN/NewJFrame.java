@@ -427,12 +427,10 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel KHjLabel;
     private javax.swing.JPanel KHjPanel;
     private javax.swing.JPanel LTjPanel;
-    private javax.swing.JPanel LTjPanel1;
     private javax.swing.JLabel NVjLabel;
     private javax.swing.JPanel NVjPanel;
     private javax.swing.JLabel TKjLabel;
     private javax.swing.JLabel TKjLabel1;
-    private javax.swing.JLabel TKjLabel2;
     private javax.swing.JPanel TKjPanel5;
     private javax.swing.JLabel TourjLabel;
     private javax.swing.JButton btnDangXuat;

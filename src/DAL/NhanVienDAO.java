@@ -107,7 +107,7 @@ public class NhanVienDAO {
                             query.append(" and manv = "+nv.get("Manhanvien"));
                         }
                         if(nv.get("tennhanvien")!= null&& !nv.get("tennhanvien").equals("")){
-                            query.append(" and tennv ="+nv.get("tennhanvien"));
+                            query.append(" and tennv = '"+nv.get("tennhanvien")+"'");
                             
                         }
                         System.out.println(query.toString());

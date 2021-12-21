@@ -17,6 +17,7 @@ import java.util.Map;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -442,11 +443,15 @@ public class NhanvienJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_txtSortNVActionPerformed
 
     private void SearchbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchbtnActionPerformed
-       Map<String,String> map = new HashMap<>();
+       String regex = "^\\d+$";
+       if (!Pattern.matches(regex, txtSortNV.getText()))
+           JOptionPane.showMessageDialog(null, "Mã nhân viên là số");
+       else{
+        Map<String,String> map = new HashMap<>();
        map.put("Manhanvien",txtSortNV.getText());
        map.put("tennhanvien", txtSortTNV.getText());
         doDuLieuSearch(map);
-      
+       }
     }//GEN-LAST:event_SearchbtnActionPerformed
 
 
