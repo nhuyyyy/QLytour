@@ -33,32 +33,6 @@ public class ThongKe extends javax.swing.JPanel {
         initComponents();
 
     }
-
-    private JFreeChart createChart(PieDataset dataset) {
-        JFreeChart chart = ChartFactory.createPieChart(
-                "CƠ CẤU DÂN SỐ THEO NHÓM TUỔI NĂM 2010", dataset, true, true, true);
-        return chart;
-    }
-
-    private PieDataset createDataset() {
-        DefaultPieDataset dataset = new DefaultPieDataset();
-        dataset.setValue("Nhóm 0 - 14", new Double(25.0));
-        dataset.setValue("Nhóm 15 - 59", new Double(66.0));
-        dataset.setValue("Nhóm trên 60", new Double(9.0));
-        return dataset;
-    }
-    
-    public void thongke() {
-        JFreeChart pieChart = createChart(createDataset());
-        ChartPanel chartPanel = new ChartPanel(pieChart);
-        JFrame frame = new JFrame();
-        frame.add(chartPanel);
-        frame.setTitle("Biểu đồ JFreeChart trong Java Swing");
-        frame.setSize(600, 400);
-        frame.setLocationRelativeTo(null);
-        frame.setResizable(false);
-        frame.setVisible(true);
-    }
     
     /**
      * This method is called from within the constructor to initialize the form.
