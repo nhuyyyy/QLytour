@@ -13,6 +13,7 @@ public class ThongKe {
     private String soDoan;
     private String soTour;
     private String soKhach;
+    private String ten;
     
     public ThongKe(){
         
@@ -36,6 +37,10 @@ public class ThongKe {
         return soKhach;
     }
 
+    public String getTen() {
+        return ten;
+    }
+    
     public void setSoDoan(String soDoan) {
         this.soDoan = soDoan;
     }
@@ -46,5 +51,9 @@ public class ThongKe {
 
     public void setSoKhach(String soKhach) {
         this.soKhach = soKhach;
+    }
+
+    public void setTen(String ten) {
+        this.ten = ten;
     }
 }

@@ -3,12 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/SGU/HK1%2021-22/Phanlop/QLytour/src/BUS/ThongKeBUS.java</file>
             <file>file:/D:/SGU/HK1%2021-22/Phanlop/QLytour/src/GUI/NhanvienJPanel.java</file>
             <file>file:/D:/SGU/HK1%2021-22/Phanlop/QLytour/src/GUI/TourJpanel.java</file>
             <file>file:/D:/SGU/HK1%2021-22/Phanlop/QLytour/src/DAO/ThongKeDAO.java</file>
             <file>file:/D:/SGU/HK1%2021-22/Phanlop/QLytour/src/GUI/ChinhsuatourJDialog.java</file>
             <file>file:/D:/SGU/HK1%2021-22/Phanlop/QLytour/src/GUI/ThongKe.java</file>
+=======
+            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/QLytour/src/GUI/ThongKe.java</file>
+            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/QLytour/src/BLL/ThongKeBUS.java</file>
+            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/QLytour/src/DAL/NhanVienDAO.java</file>
+            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/QLytour/src/DTO/ThongKe.java</file>
+            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/QLytour/src/GUI/NhanvienJPanel.java</file>
+            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/QLytour/src/BLL/NhanVienBUS.java</file>
+            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/QLytour/src/DAL/ThongKeDAO.java</file>
+            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/QLytour/src/MAIN/QLTOUR.java</file>
+>>>>>>> 8fbb5b944ee4142808ca2793591cd05a1c283e18
         </group>
     </open-files>
 </project-private>
